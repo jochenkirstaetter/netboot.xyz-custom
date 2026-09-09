@@ -22,7 +22,7 @@ goto menu
 reboot
 
 :reload
-chain ${custom_url}/custom.ipxe
+chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/main/custom.ipxe
 
 :main_menu
 :menu_exit
