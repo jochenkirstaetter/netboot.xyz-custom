@@ -1,0 +1,20 @@
+#!ipxe
+
+set menu-timeout 5000
+
+:menu
+menu Dummy Custom iPXE
+item --gap --          Select an option:
+item shell             Open iPXE shell
+item reboot            Reboot the system
+choose --timeout ${menu-timeout} --default shell selected || goto shell
+goto ${selected}
+
+:shell
+echo This is a dummy custom iPXE configuration.
+echo Type 'exit' to return to the menu.
+shell
+goto menu
+
+:reboot
+reboot
