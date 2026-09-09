@@ -3,7 +3,7 @@
 set menu-timeout 5000
 
 :menu
-menu GitHub Custom iPXE
+menu Custom features (GitHub: ${github_user})
 item --gap Choose wisely:
 item shell ${space}         Open iPXE shell
 item reboot ${space}        Reboot the system
