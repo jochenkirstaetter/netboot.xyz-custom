@@ -3,11 +3,13 @@
 set menu-timeout 5000
 
 :menu
-menu Dummy Custom iPXE
-item --gap --          Select an option:
-item shell             Open iPXE shell
-item reboot            Reboot the system
-choose --timeout ${menu-timeout} --default shell selected || goto shell
+menu GitHub Custom iPXE
+item --gap Choose wisely:
+item shell ${space}         Open iPXE shell
+item reboot ${space}        Reboot the system
+item reload ${space}        Reload Menu
+item main_menu ${space}     Back to Main Menu
+choose --timeout ${menu-timeout} --default shell selected || goto menu_exit
 goto ${selected}
 
 :shell
@@ -18,3 +20,10 @@ goto menu
 
 :reboot
 reboot
+
+:reload
+chain ${custom_url}/custom.ipxe
+
+:main_menu
+:menu_exit
+exit 0
